@@ -7,7 +7,7 @@ extension AVAsset {
         // (Preload tracks at the same time.)
         let (duration, creationDate, commonMetadataItems, _) = try await load(.duration, .creationDate, .commonMetadata, .tracks)
         
-        async let creationDateValues = creationDate?.load(.dateValue, .stringValue)
+        let creationDateValues = try await creationDate?.load(.dateValue, .stringValue)
         async let trackMetadata = loadTrackMetadata()
         async let commonMetadata = loadCommonMetadata(for: commonMetadataItems)
         
@@ -74,3 +74,4 @@ extension AVAsset {
         return try await items.first?.load(.stringValue)
     }
 }
+

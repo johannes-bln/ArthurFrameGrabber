@@ -5,7 +5,7 @@ struct ISO6709LocationParser {
     
     /// Parses a subset of ISO 6709 locations, as used by the Apple QuickTime video format.
     ///
-    /// Only decimal degress are supported. The coordinate reference system (CRS) component is not
+    /// Only decimal degrees are supported. The coordinate reference system (CRS) component is not
     /// supported, coordinates are always interpreted according to the WGS 84 reference frame.
     ///
     /// A typical string might look like: `+23.0384+016.3672+42.078/`.
@@ -57,7 +57,7 @@ struct ISO6709LocationParser {
         return (latitude, longitude, altitude)
     }
     
-    @available(iOS, obsoleted: 16)
+    @available(iOS, deprecated: 16.0, message: "Use regexComponents(from:) on iOS 16 and later.")
     private func legacyComponents(from string: String) -> LocationComponents? {
         let pattern = "([+-][0-9.]+)([+-][0-9.]+)([+-][0-9.]+)?"
         let groups = string.captureGroups(matching: pattern)
@@ -75,7 +75,7 @@ struct ISO6709LocationParser {
 // MARK: - Utilities
 
 extension String {
-    @available(iOS, obsoleted: 16)
+    @available(iOS, deprecated: 16.0, message: "Use Swift Regex APIs on iOS 16 and later.")
     fileprivate func captureGroups(matching pattern: String) -> [String] {
         let fullRange = NSRange(location: 0, length: count)
         
@@ -90,7 +90,7 @@ extension String {
 }
 
 extension Collection {
-    @available(iOS, obsoleted: 16)
+    @available(iOS, deprecated: 16.0, message: "Use bounds-checked access or modern collection APIs on iOS 16 and later.")
     fileprivate subscript(safe index: Index) -> Element? {
         indices.contains(index) ? self[index] : nil
     }
