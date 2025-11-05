@@ -12,6 +12,7 @@ import UIKit
 /// resources upon deinitalization.
 ///
 /// - Note: The controller should only be used from the main queue.
+
 class VideoController {
 
     typealias VideoResult = Result<AVAsset, Error?>

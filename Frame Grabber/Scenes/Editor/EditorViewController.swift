@@ -7,6 +7,7 @@ import UIKit
 }
 
 final class EditorViewController: UIViewController {
+    override var canBecomeFirstResponder: Bool { true }
     
     weak var delegate: EditorViewControllerDelegate?
 
@@ -50,6 +51,7 @@ final class EditorViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureNavigationBar()
+        becomeFirstResponder()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -138,6 +140,32 @@ final class EditorViewController: UIViewController {
                 self?.presentOnTop(UIAlertController.playbackFailed())
             }
             .store(in: &bindings)
+    }
+    
+    // MARK: - Keyboard Shortcuts
+
+    override var keyCommands: [UIKeyCommand]? {
+        return [
+            UIKeyCommand(title: "Play/Pause", image: nil, action: #selector(handlePlayPauseCommand), input: " ", modifierFlags: [], propertyList: nil, alternates: [], discoverabilityTitle: "Play/Pause", attributes: [], state: .off),
+            UIKeyCommand(title: "Step Backward", image: nil, action: #selector(handleStepBackwardCommand), input: UIKeyCommand.inputLeftArrow, modifierFlags: [], propertyList: nil, alternates: [], discoverabilityTitle: "Step Backward", attributes: [], state: .off),
+            UIKeyCommand(title: "Step Forward", image: nil, action: #selector(handleStepForwardCommand), input: UIKeyCommand.inputRightArrow, modifierFlags: [], propertyList: nil, alternates: [], discoverabilityTitle: "Step Forward", attributes: [], state: .off)
+        ]
+    }
+
+    @objc private func handlePlayPauseCommand() {
+        // Avoid interfering while scrubbing via slider.
+        if toolbarController?.isScrubbing == true { return }
+        playbackController.playOrPause()
+    }
+
+    @objc private func handleStepBackwardCommand() {
+        if toolbarController?.isScrubbing == true { return }
+        playbackController.step(byCount: -1)
+    }
+
+    @objc private func handleStepForwardCommand() {
+        if toolbarController?.isScrubbing == true { return }
+        playbackController.step(byCount: 1)
     }
 
     // MARK: Loading Videos

@@ -2,7 +2,7 @@ import AVFoundation
 
 /// An operation that indexes a video's samples to provide accurate timing information for each
 /// sample.
-class SampleTimeIndexOperation: Operation {
+class SampleTimeIndexOperation: Operation, @unchecked Sendable {
 
     typealias Result<Success> = Swift.Result<Success, SampleTimeIndexError>
 

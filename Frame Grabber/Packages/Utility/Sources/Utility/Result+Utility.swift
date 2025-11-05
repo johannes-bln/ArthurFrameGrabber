@@ -1,7 +1,7 @@
 import Foundation
 
 /// Allow optional errors in `Result`.
-extension Optional: Error where Wrapped: Error {}
+extension Optional: @retroactive Error where Wrapped: Error {}
 
 extension Error {
     public var isCocoaCancelledError: Bool {

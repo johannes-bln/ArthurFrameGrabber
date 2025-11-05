@@ -132,6 +132,7 @@
 		00F3C255213046CD0030B7EC /* AlbumListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F3C254213046CD0030B7EC /* AlbumListHeader.swift */; };
 		00FA916025C934B1007EB7DC /* PhotoLibraryMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FA915F25C934B1007EB7DC /* PhotoLibraryMetadata.swift */; };
 		00FA916625C934E9007EB7DC /* VideoSourceMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FA916525C934E9007EB7DC /* VideoSourceMetadata.swift */; };
+		8FDCDE7A2EBB86AA00ACB9E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDCDE792EBB86AA00ACB9E9 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -280,6 +281,7 @@
 		00F3C254213046CD0030B7EC /* AlbumListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListHeader.swift; sourceTree = "<group>"; };
 		00FA915F25C934B1007EB7DC /* PhotoLibraryMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryMetadata.swift; sourceTree = "<group>"; };
 		00FA916525C934E9007EB7DC /* VideoSourceMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSourceMetadata.swift; sourceTree = "<group>"; };
+		8FDCDE792EBB86AA00ACB9E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -612,6 +614,7 @@
 				00AEA0D428564E0F00444464 /* ButtonStyle.swift */,
 				0067B4DA25D2D2C8008F3E69 /* ViewControllerFactory.swift */,
 				001AA1811FB4977100A00BB9 /* LaunchScreen.storyboard */,
+				8FDCDE792EBB86AA00ACB9E9 /* SceneDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -724,7 +727,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 2600;
 				ORGANIZATIONNAME = "Arthur Hammer";
 				TargetAttributes = {
 					009C65621FBF32A600DB25A6 = {
@@ -806,6 +809,7 @@
 				00653B43213941A20038CB56 /* ZoomPushTransition.swift in Sources */,
 				00A9DF5221273FA000778885 /* AlbumListViewController.swift in Sources */,
 				00BCB4B825C961D40005192F /* VideoCodecs.swift in Sources */,
+				8FDCDE7A2EBB86AA00ACB9E9 /* SceneDelegate.swift in Sources */,
 				00024F70234482EE00937941 /* LibraryGridMenu.swift in Sources */,
 				00AD72C124194107009D18BA /* AVPlayer.swift in Sources */,
 				001F7E4225CB49260075AFC2 /* VideoTimeFormatter.swift in Sources */,
@@ -1058,6 +1062,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1077,6 +1082,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "Frame Grabber";
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1124,6 +1130,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1136,6 +1143,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "Frame Grabber";
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1184,6 +1192,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1196,6 +1205,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "Frame Grabber";
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";

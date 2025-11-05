@@ -39,6 +39,8 @@
 	<false/>
 	<key>NSCameraUsageDescription</key>
 	<string>Record videos and export video frames.</string>
+	<key>NSDocumentController</key>
+	<string>Viewer</string>
 	<key>NSMainStoryboardFile</key>
 	<string>Main</string>
 	<key>NSMicrophoneUsageDescription</key>

@@ -58,7 +58,7 @@ extension UserDefaults {
     }
 }
 
-extension UserDefaults: PurchasedProductsStore {
+extension UserDefaults: @retroactive PurchasedProductsStore {
     public var purchasedProductIdentifiers: [String] {
         get { (array(forKey: Key.purchasedProductIdentifiers) as? [String]) ?? [] }
         set { set(newValue, forKey: Key.purchasedProductIdentifiers) }

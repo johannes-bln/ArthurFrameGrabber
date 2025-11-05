@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Cw-ag-d47">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24128" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Cw-ag-d47">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -19,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8St-aq-4oR" customClass="ZoomingPlayerView" customModule="FG_Beta" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88" width="390" height="536"/>
+                                <rect key="frame" x="0.0" y="148" width="390" height="476"/>
                                 <accessibility key="accessibilityConfiguration" label="Video">
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
@@ -97,10 +96,10 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="It4-ph-aop">
-                                                            <rect key="frame" x="28" y="3.0000000000000009" width="135" height="14.333333333333336"/>
+                                                            <rect key="frame" x="28" y="1" width="135" height="18"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Exporting…&gt;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGN-ie-szR">
-                                                                    <rect key="frame" x="28" y="0.0" width="79" height="14.333333333333334"/>
+                                                                    <rect key="frame" x="19.666666666666657" y="0.0" width="96" height="18"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -159,19 +158,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="220"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="TKw-XQ-klh" userLabel="Controls">
-                                        <rect key="frame" x="14" y="76.333333333333314" width="362" height="121.66666666666669"/>
+                                        <rect key="frame" x="14" y="126" width="362" height="60"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" verticalHuggingPriority="500" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="56" translatesAutoresizingMaskIntoConstraints="NO" id="dyS-Pe-J8M" customClass="ScrubbingThumbnailSlider" customModule="ThumbnailSlider">
-                                                <rect key="frame" x="0.0" y="0.0" width="362" height="14.666666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="362" height="0.0"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnD-Dr-flg">
-                                                        <rect key="frame" x="318" y="-10.666666666666657" width="36" height="36"/>
+                                                        <rect key="frame" x="318" y="-18" width="36" height="36"/>
                                                         <accessibility key="accessibilityConfiguration" label="Scrubbing Speed"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="BnD-Dr-flg" secondAttribute="height" id="aZC-yy-o9W"/>
                                                             <constraint firstAttribute="height" constant="36" id="wWK-xi-vVT"/>
                                                         </constraints>
-                                                        <state key="normal" image="speedometer" catalog="system">
+                                                        <state key="normal" image="gauge.with.dots.needle.bottom.100percent" catalog="system">
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="medium"/>
                                                         </state>
                                                     </button>
@@ -196,17 +195,17 @@
                                                 </connections>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fLW-cX-bmC" userLabel="Buttons">
-                                                <rect key="frame" x="0.0" y="30.666666666666671" width="362" height="91"/>
+                                                <rect key="frame" x="0.0" y="16" width="362" height="44"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="248" horizontalCompressionResistancePriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="734-DU-reF">
-                                                        <rect key="frame" x="0.0" y="0.0" width="1" height="91"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="1" height="44"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="1" id="srd-ZX-qaX"/>
                                                         </constraints>
                                                         <variation key="heightClass=compact" hidden="YES"/>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="hqI-IN-dD1">
-                                                        <rect key="frame" x="48" y="23.666666666666657" width="266" height="44"/>
+                                                        <rect key="frame" x="48" y="0.0" width="266" height="44"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aig-9J-KTP">
                                                                 <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
@@ -267,7 +266,7 @@
                                                         <variation key="widthClass=regular" spacing="12"/>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="leB-rO-H7l">
-                                                        <rect key="frame" x="361" y="0.0" width="1" height="91"/>
+                                                        <rect key="frame" x="361" y="0.0" width="1" height="44"/>
                                                         <variation key="heightClass=compact" hidden="YES"/>
                                                     </view>
                                                 </subviews>
@@ -280,10 +279,10 @@
                                         <variation key="widthClass=regular" alignment="center" axis="horizontal"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="qwb-8H-Tuf" userLabel="Time Label with Spinner">
-                                        <rect key="frame" x="163.66666666666666" y="54" width="63" height="14.333333333333329"/>
+                                        <rect key="frame" x="162" y="104" width="66" height="14"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="&lt;Time&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILv-8M-cLD">
-                                                <rect key="frame" x="0.0" y="0.0" width="43" height="14.333333333333334"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="46" height="14"/>
                                                 <accessibility key="accessibilityConfiguration" hint="Video Time">
                                                     <accessibilityTraits key="traits" staticText="YES" updatesFrequently="YES"/>
                                                 </accessibility>
@@ -293,7 +292,7 @@
                                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                                             </label>
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="T3A-oe-vxr">
-                                                <rect key="frame" x="43" y="0.0" width="20" height="14.333333333333334"/>
+                                                <rect key="frame" x="46" y="0.0" width="20" height="14"/>
                                             </activityIndicatorView>
                                         </subviews>
                                     </stackView>
@@ -360,10 +359,10 @@
     <resources>
         <image name="arrow.left" catalog="system" width="128" height="95"/>
         <image name="arrow.right" catalog="system" width="128" height="95"/>
+        <image name="gauge.with.dots.needle.bottom.100percent" catalog="system" width="128" height="123"/>
         <image name="gear" catalog="system" width="128" height="122"/>
-        <image name="play.fill" catalog="system" width="117" height="128"/>
-        <image name="speedometer" catalog="system" width="128" height="123"/>
-        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="play.fill" catalog="system" width="120" height="128"/>
+        <image name="square.and.arrow.up" catalog="system" width="110" height="128"/>
         <namedColor name="accent">
             <color red="0.46666666666666667" green="0.27843137254901962" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
