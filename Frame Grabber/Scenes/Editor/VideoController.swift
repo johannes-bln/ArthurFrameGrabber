@@ -118,10 +118,11 @@ class VideoController {
         with size: CGSize,
         completionHandler: @escaping (UIImage?) -> ()
     ) {
+        let requestOptions = PHImageRequestOptions.editorPreview()
         let options = PHImageManager.ImageOptions(
             size: size,
             mode: .aspectFit,
-            requestOptions: .default()
+            requestOptions: requestOptions
         )
 
         imageRequest = imageManager.requestImage(for: asset, options: options) {

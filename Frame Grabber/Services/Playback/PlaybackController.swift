@@ -12,8 +12,8 @@ class PlaybackController {
     @Published var asset: AVAsset? {
         didSet {
             seeker.cancelPendingSeeks()
+            resetSampleTimes()
             player.replaceCurrentItem(with: asset.map(AVPlayerItem.init))
-            indexSampleTimes()
         }
     }
 
@@ -45,6 +45,7 @@ class PlaybackController {
     private let seeker: PlayerSeeker
     private let sampleIndexer: SampleTimeIndexer
     private var sampleTimes: SampleTimes?
+    private var didStartSampleTimeIndexing = false
     private var bindings = Set<AnyCancellable>()
     
     private let interval = CMTime(seconds: 1/60.0, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
@@ -91,10 +92,12 @@ class PlaybackController {
     // MARK: - Seeking
 
     func smoothlySeek(to time: CMTime) {
+        indexSampleTimesIfNeeded()
         seeker.smoothlySeek(to: seekTime(for: time))
     }
 
     func directlySeek(to time: CMTime) {
+        indexSampleTimesIfNeeded()
         seeker.directlySeek(to: seekTime(for: time))
     }
 
@@ -135,14 +138,17 @@ class PlaybackController {
         player.publisher(for: \.rate)
             .map { $0 != 0 }
             .removeDuplicates()
-            .assignWeak(to: \.isPlaying, on: self)
+            .sink { [weak self] isPlaying in
+                self?.isPlaying = isPlaying
+                self?.indexSampleTimesIfNeeded()
+            }
             .store(in: &bindings)
 
         player.periodicTimePublisher(forInterval: interval)
             .assignWeak(to: \.currentPlaybackTime, on: self)
             .store(in: &bindings)
 
-        player.periodicTimePublisher(forInterval: interval)
+        $currentPlaybackTime
             .map { [weak self] in
                 self?.sampleTime(for: $0)
             }
@@ -184,6 +190,8 @@ class PlaybackController {
     }
     
     func relativeFrameNumber(for playbackTime: CMTime) -> Int? {
+        indexSampleTimesIfNeeded()
+        
         guard let index = sampleTimes?.sampleTimingIndexInSecond(for: playbackTime) else {
             return nil
         }
@@ -191,14 +199,14 @@ class PlaybackController {
     }
     
     private func indexSampleTimes() {
-        currentSampleTime = nil
-        sampleTimes = nil
-        sampleIndexer.cancel()
-        
         guard let asset else { return }
         
-        // TODO: Currently resides on the assumption that `asset` is set only once. If it isn't, the
-        // of completion handlers and the value of this flag are not guaranteed.
+        // Indexing every sample can be expensive for long videos. Keep playback responsive by
+        // waiting until the user pauses or scrubs before doing that work.
+        guard !isPlaying else { return }
+        guard !_isIndexingSampleTimes, !didStartSampleTimeIndexing else { return }
+        
+        didStartSampleTimeIndexing = true
         _isIndexingSampleTimes = true
         
         sampleIndexer.indexTimes(for: asset) { [weak self] result in
@@ -208,5 +216,17 @@ class PlaybackController {
                 self?.currentSampleTime = self?.sampleTime(for: self?.currentPlaybackTime ?? .zero)
             }
         }
+    }
+    
+    private func indexSampleTimesIfNeeded() {
+        indexSampleTimes()
+    }
+    
+    private func resetSampleTimes() {
+        currentSampleTime = nil
+        sampleTimes = nil
+        didStartSampleTimeIndexing = false
+        _isIndexingSampleTimes = false
+        sampleIndexer.cancel()
     }
 }

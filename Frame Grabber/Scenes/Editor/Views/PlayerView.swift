@@ -22,9 +22,28 @@ final class PlayerView: UIView {
         imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        if #available(iOS 16.0, *) {
+            imageView.layer.wantsExtendedDynamicRangeContent = true
+        }
         insertSubview(imageView, at: 0)
         return imageView
     }()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configureColorRendering()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        configureColorRendering()
+    }
+
+    private func configureColorRendering() {
+        if #available(iOS 16.0, *) {
+            layer.wantsExtendedDynamicRangeContent = true
+        }
+    }
     
     private var playerLayer: AVPlayerLayer {
         layer as! AVPlayerLayer

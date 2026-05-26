@@ -73,6 +73,9 @@ final class ZoomingPlayerView: UIView {
     private func configureViews() {
         playerView.layer.backgroundColor = nil
         clipsToBounds = true
+        if #available(iOS 16.0, *) {
+            layer.wantsExtendedDynamicRangeContent = true
+        }
 
         scrollView.addSubview(playerView)
         addSubview(scrollView)

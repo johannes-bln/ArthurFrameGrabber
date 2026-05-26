@@ -75,6 +75,15 @@ extension PHImageRequestOptions {
         options.deliveryMode = .opportunistic
         return options
     }
+
+    /// Full-quality image request for the editor preview.
+    static func editorPreview() -> PHImageRequestOptions {
+        let options = PHImageRequestOptions()
+        options.isNetworkAccessAllowed = true
+        options.deliveryMode = .highQualityFormat
+        options.resizeMode = .exact
+        return options
+    }
 }
 
 extension PHVideoRequestOptions {
